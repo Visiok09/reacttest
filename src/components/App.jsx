@@ -1,4 +1,3 @@
-import React from "react";
 import Posts from './Posts'
 
 class App extends React.Component{
@@ -8,14 +7,22 @@ class App extends React.Component{
             {id: 'a2', name: 'React'},
             {id: 'a3', name:'Solidity'}
         ]
+    };
+
+    removePost = (id) =>{
+        this.setState(prevState => ({
+            posts: prevState.posts.filter(post => post.id !== id)
+        }));
     }
     
     render(){
+        const { posts } = this.state;
         return(
             <div className="App">
-             <Posts posts={this.state.posts}/>
+             <Posts posts={posts} removePost={this.removePost}/>
             </div>
         )
     }
 }
+
 export default App;

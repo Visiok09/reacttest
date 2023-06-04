@@ -1,3 +1,4 @@
+import React from 'react';
 import Posts from './Posts'
 
 class App extends React.Component{
